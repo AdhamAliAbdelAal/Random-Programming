@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+button {
+    display: none;
+    background-color: red;
+    padding: 10px;
+    border-radius: 20px;
+    border-width: 0;
+    color: white;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+body {
+    background-color: salmon;
+}
+
+div {
+    width: fit-content;
+    text-shadow: 2px 0px 0px red;
+}
+
+p {
+    line-height: 1.7;
+    font-size: 2vw;
+}
+
+img {
+    vertical-align: middle;
+    cursor: grab;
+}
+
+.parent {
+    background-color: gray;
+    padding: 10px;
+}
+
+.child {
+    background-color: red;
+    padding: 10px;
+    margin: 10px;
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.parent2 {
+    background-color: rgb(43, 255, 0);
+    padding: 10px;
+}

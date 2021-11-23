@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --activeColor: rgb(206, 206, 206);
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+}
+
+li {
+    padding: 10px;
+    background-color: rgb(226, 226, 226);
+    font-size: 1.1em;
+    text-transform: capitalize;
+    transition: 1s;
+}
+
+.active,
+li:hover {
+    cursor: pointer;
+    user-select: none;
+    background-color: var(--activeColor);
+}
+
+.content div {
+    display: none;
+    padding: 20px;
+    max-width: 50%;
+    background-color: var(--activeColor);
+    line-height: 1.6em;
+    transition: 1s;
+}
+
+.content>div:first-child {
+    display: block;
+    opacity: 1;
+}

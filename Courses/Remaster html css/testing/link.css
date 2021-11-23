@@ -1,0 +1,55 @@
+:root {
+    --adham: rgb(194, 194, 194);
+}
+
+.button {
+    color: rgb(0, 0, 0);
+    font-size: 1.3em;
+    position: fixed;
+    right: 1%;
+    bottom: 1%;
+    background-color: rgb(177, 177, 177);
+    padding: .4%;
+    transition: 1s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.show {
+    right: 1%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.parent {
+    background-color: var(--adham);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height: 400px;
+}
+
+.child {
+    width: 25%;
+    flex-grow: 1;
+    background-color: rgb(245, 33, 33);
+    padding: 20px;
+    text-align: center;
+    border: 1px solid grey;
+}
+
+img {
+    display: block;
+    width: 143px;
+    transition-duration: 1s;
+    transition-property: width;
+    filter: grayscale(100%);
+    margin: auto;
+}
+
+img:hover {
+    width: 157px;
+    filter: grayscale(0%);
+}

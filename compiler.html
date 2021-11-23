@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="mahmoud haleem course" />
+    <title>Java Screp</title>
+    <style>
+        *{
+            padding :0;
+            margin:0;
+        }
+        .topbar{
+            background-color:#bebebe;
+            width:98.7%;
+            height:35px;
+            padding :10px;
+        }
+        .title{
+            font-size:1.5em;
+            font-weight:bold;
+            float:left;
+        }
+        .menubar li{
+            list-style:none;
+            float: left;
+            padding :5px;
+            border:1px solid grey;
+           text-transform:uppercase;
+        }
+        
+        .menubar {
+            width: 250px;
+            margin: 6px auto;
+            cursor:pointer;
+        }
+        .run{
+            float:right;
+            margin-right:10px;
+            background-color:#808080;
+            margin-top:2px;
+        }
+        .run button{
+            width:50px;
+        }
+        .clear
+        {
+            clear:both;
+        }
+        .codecontainer
+        {
+            width:50%;
+            background-color:#000000;
+            float:left;
+        }
+        textarea {
+            height: 99.8%;
+            width: 100%;
+            background-color: #000000;
+            color: #fff400;
+            border: none;
+            box-sizing:border-box;
+        }
+        .jsarea {
+            background-color: #232F3C;
+            color: #ffffff;
+        }
+        .result p {
+            background-color: #bebebe;
+            color: #000000;
+            border-bottom: 1px solid #000000;
+        }
+        .js p {
+            background-color: #232F3C;
+            color: #ffffff;
+            border-bottom: 1px solid #ffffff;
+        }
+        .selected
+        {
+            background-color:grey;
+        }
+        .css,.js{
+            display:none;
+        }
+        p {
+            color: #fff400;
+            text-align: center;
+            border-bottom: 1px solid #fff400;
+        }
+        .cssarea {
+            background-color: #ffffff;
+            color: #1EBEA5;
+        }
+        .css p {
+            background-color: #ffffff;
+            color: #1EBEA5;
+            border-bottom: 1px solid #1EBEA5;
+        }
+        iframe {
+            height: 99.8%;
+            width: 100%;
+            background-color: #ffffff;
+            border: none;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="title">CodePlayer</div>
+            <div class="menubar">
+                <ul>
+                    <li class="selector selected">html</li>
+                    <li class="selector">css</li>
+                    <li class="selector">js</li>
+                    <li class="selected">RESULT</li>
+                </ul>
+            </div>
+            <div class="run">
+                <button>Run</button>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="codecontainer html">
+            <p>HTML</p>
+            <textarea class="htmlarea">adham</textarea>
+        </div>
+        <div class="codecontainer css">
+            <p>CSS</p>
+            <textarea class="cssarea">example</textarea>
+        </div>
+        <div class="codecontainer js" id="#js">
+            <p>JS</p>
+            <textarea class="jsarea">example</textarea>
+        </div>
+        <div class="codecontainer result">
+            <p>RESULT</p>
+            <iframe id="i"></iframe>
+        </div>
+    </div>
+    
+    <script src="jquery-3.6.0.min.js" type="text/javascript">
+    </script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(".codecontainer").height($(window).height() - $(".topbar").height() - 39 + "px");
+        $(".selector").click(function () {
+            $(this).toggleClass("selected");
+            $("." + $(this).html()).toggle();
+            var numOfDivs = $(".codecontainer").filter(function () {
+                return ($(this).css("display") != "none");
+            }).length;
+            $(".codecontainer").width((100 / numOfDivs) + "%");
+        })
+        $("button").click(function () {
+            $("iframe").contents().find("html").html("<style>" + $(".cssarea").val() + "</style>" + $(".htmlarea").val());
+            document.getElementById("i").contentWindow.eval($(".jsarea").val());
+        })
+    </script>
+</body>
+</html>

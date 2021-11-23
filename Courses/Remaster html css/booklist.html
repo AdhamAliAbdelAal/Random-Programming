@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Document</title>
+    <style>
+        th{
+            border:0;
+        }
+        thead{
+            border-top:1px solid;
+            border-bottom:0.5px solid;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <h1 class="fw-normal text-center mt-2">
+            <i class="fas fa-book-open text-primary"></i> My<span class="text-primary">Book</span>List
+        </h1>
+    </div>
+    <div class="container">
+        <form>
+            <div class="mb-2">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title">
+            </div>
+            <div class="mb-2">
+              <label for="author" class="form-label">Author</label>
+              <input type="text" class="form-control" id="author">
+            </div>
+            <div class="mb-3">
+                <label for="isbn" class="form-label">ISBN#</label>
+                <input type="text" class="form-control" id="isbn">
+              </div>
+            <button type="submit" class="btn btn-primary w-100">Add Book</button>
+          </form>
+    </div>
+    <div class="container mt-3">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">ISBN</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+    </div>
+    <!-- <script src="app.js"></script> -->
+    <script>
+      class book
+{
+    constructor(title,author,isbn)
+    {
+        console.log(title.length);
+        if(title.length==0)
+        {
+            title="Untitled";
+        }
+        if(author.length==0)
+        {
+            author="Unknown";   
+        }
+        if(isbn.length==0)
+        {
+            isbn="0";
+        }
+        this.title=title;
+        this.author=author;
+        this.isbn=isbn;
+    }
+}
+class storage
+{
+    static getStoredBooks()
+    {
+        let booksTest =localStorage.getItem("books");
+        if(booksTest)
+        {
+            return JSON.parse(booksTest);
+        }
+        else{
+            localStorage.setItem('books','[]');
+            return [];
+        }
+    }
+    static addBook2Storage(book)
+    {
+        let books=JSON.parse(localStorage.getItem("books"));
+        books.push(book);
+        localStorage.setItem('books',JSON.stringify(books));
+    }
+
+    static deleteBookFromStorage(book)
+    {
+        let books=JSON.parse(localStorage.getItem("books"));
+        console.log(books);
+        for(let i=0;i<books.length;i++)
+        {
+            console.log(book);
+            console.log(books[i]);
+            if(books[i].title===book.title&& books[i].isbn===book.isbn&&books[i].author===book.author)
+            {
+                console.log(books.splice(i,1));
+                console.log(1);
+                break;
+            }
+        }
+        console.log(books);
+        localStorage.setItem('books',JSON.stringify(books));
+    }
+}
+class UI
+{
+    static displayBooks()
+    {
+        const books=storage.getStoredBooks();
+        console.log(books);
+        books.forEach(b=>UI.addBook(b));
+    }
+    static addBook(book)
+    {
+        const body=document.querySelector("tbody");
+        body.innerHTML+=
+        `<tr>
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.isbn}</td>
+            <td class="d-flex justify-content-end"><button type="button" class="btn btn-danger btn-sm py-1">X</button></td>
+        </tr>`;
+    }
+    static deleteBook(myBook)
+    {
+        const tr=myBook.parentElement.parentElement;
+        let tdS=Array.from(tr.children);
+        let sBook=new book (tdS[0].firstChild.textContent,tdS[1].firstChild.textContent,tdS[2].firstChild.textContent);
+        storage.deleteBookFromStorage(sBook);
+        tr.parentElement.removeChild(tr);
+    }
+}
+document.addEventListener('DOMContentLoaded',UI.displayBooks);
+document.querySelector("form").addEventListener('submit',(e)=>{
+    e.preventDefault();
+    const title=document.querySelector("#title");
+    const author=document.querySelector("#author");
+    const isbn=document.querySelector("#isbn");
+    let myBook=new book(title.value,author.value,isbn.value);
+    UI.addBook(myBook);
+    storage.addBook2Storage(myBook);
+    title.value='', author.value='', isbn.value='';
+});
+document.querySelector("table").addEventListener('click',e=>{
+    if(e.target.tagName.toLowerCase()=="button")
+    {
+        UI.deleteBook(e.target);
+    }
+});
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

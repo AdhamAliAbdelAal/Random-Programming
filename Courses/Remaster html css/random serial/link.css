@@ -1,0 +1,38 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.button {
+    display: block;
+    margin: 5% auto;
+    width: fit-content;
+    height: 100%;
+    background-color: #ff4e4e;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.6em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.button:hover {
+    background-color: #ff3e3e;
+}
+
+.serial {
+    width: fit-content;
+    margin: auto;
+    background-color: gray;
+    text-align: center;
+    padding: 20px;
+    font-size: 2em;
+    letter-spacing: 0.06em;
+    display: flex;
+    justify-content: space-between;
+}
+
+::selection {
+    background-color: rgb(214, 214, 214);
+}

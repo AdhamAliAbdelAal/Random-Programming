@@ -1,0 +1,157 @@
+body {
+    font-family: ReithSans,Arial,Helvetica,freesans,sans-serif;
+    margin: 0;
+    /*line-height: 16px;*/
+}
+*
+{
+    padding:0;
+    margin:0;
+}
+.topbar {
+    height: 35px;
+    background-color: rgb(255, 255, 255);
+    font-size: 0.9em;
+    text-transform: capitalize;
+}
+.fixedwidth {
+    width:1300px;
+    margin :0 auto;
+}
+.bbclogo img{
+    width:90px;
+}
+.bbclogo {
+    padding-top: 4px;
+    padding-left: 20px;
+    float: left;
+    border-right:1px solid #000000;
+    padding-right: 17px;
+}
+.sign_in img
+{
+    width:20px;
+    position:relative;
+    top:4px;
+}
+.sign_in
+{
+    margin-left: -5px;
+    width :170px;
+    height:34px;
+    padding-top:1px;
+    padding-left: 20px;
+    border-right:1px solid #000000;
+    float:left;
+    position:relative;
+    top:1px;
+}
+.topmenu li{
+    list-style: none;
+    float:left;
+    padding:10px 20px 7px 20px;
+    border-right:1px solid #000000;
+    border-bottom:4px #ffffff solid;
+}
+.topmenu li:hover{
+    cursor: pointer;
+    border-bottom:4px #000000 solid;
+}
+
+.topmenu
+{
+    float:left;
+}
+.search
+{
+    float:left;
+    padding-left:20px ;
+    position: relative;
+    top:0px;
+}
+.search input{
+    background-color: #E4E4E4;
+    padding:2px;
+    border:0px;
+}
+::-webkit-input-placeholder
+{
+    font-weight: bold;
+    color: #1D1D1B;
+}
+.search img{
+    width:20px;
+    position: relative;
+    top:6px;
+}
+.clear
+{
+    clear:both;
+}
+.newsbar
+{
+    height: 88px;
+    background-color: #BB1919;
+    color:#FFFFFF;
+
+}
+.newsheader
+{
+    font-size:2.6em ;
+    padding-left: 19px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+.lowernewsbar ul li{
+    list-style: none;
+    margin-bottom: 10px;
+    float:left;
+    border-right: 0.02em rgb(148, 148, 148) solid ;
+    padding :0px 12px;
+    font-size: 00.9em;
+    font-weight:100;
+    text-transform: capitalize;
+    padding-bottom: 5px;
+    border-bottom:4px #BB1919 solid;
+}
+.lowernewsbar ul li:hover{
+    cursor: pointer;
+    border-bottom:4px #FFFFFF solid;
+}
+.lowernewsbar ul
+{
+    margin-left:10px;
+}
+.more
+{
+    border-right:0px !important ;
+}
+.secondlowernewsbar ul li{
+    list-style: none;
+    margin-bottom: 10px;
+    color:#1D1D1B;
+    float:left;
+    border-right: 0.02em rgb(148, 148, 148) solid ;
+    padding :0px 12px;
+    font-size: 00.9em;
+    font-weight:100;
+    text-transform: capitalize;
+    margin-top:5px;
+    border-bottom:6px #FFFFFF solid;
+}
+.secondlowernewsbar ul li:hover
+{
+    cursor: pointer;
+    border-bottom:6px #BB1919 solid;
+}
+.secondlowernewsbar ul
+{
+    margin-left:10px;
+}
+.UK
+{
+    font-size: 1.2em !important;
+    line-height: 14px;
+    padding-bottom: 5px !important;
+    border-bottom:6px #BB1919 solid !important;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="link.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="button"><i class="fad fa-chevron-double-up"></i></div>
+    <div class="parent">
+        <div class="child">one</div>
+        <div class="child">two</div>
+        <div class="child">three</div>
+        <div class="child">four</div>
+        <div class="child">five</div>
+    </div>
+    <img src="https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_.jpgs" alt="3333">
+    <script>
+        let btn = document.querySelector('.button')
+        document.addEventListener('scroll', () => {
+            if (scrollY) {
+                btn.style.right = '1%';
+            } else {
+                btn.style.right = '-4%';
+            }
+        })
+        btn.addEventListener('click', () => {
+            scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        })
+    </script>
+</body>
+
+</html>
